@@ -1,15 +1,51 @@
-# The University of Arizona Thesis Template
+# The ~~Unofficial~~ University of Arizona Thesis Template
 
 This is a LaTeX thesis template for graduate students at The University of Arizona.
-This template was last updated in 2023 to match current Graduate
-College requirements.
 
-## BREAKING CHANGES
+Right off the bat, as of the time of writing, there is no "official" UofA template for Thesis from the grad college, only the first few pages, one which is also in the process of transitioning to a fully online Adobe Sign workflow, has samples.
+All the other portions of the document are only loosely (not even a margin or line spacing requirement!) defined by the Formatting guide, all the current samples and guides can be found in the `\uathesis\ua-templates` folder.
 
-The template is highly modified to run with the newer methods of latex, such as using latexmk, lualatex, biblatex.
-The latex environment used is VScode with the Latex Workshop extension running on Miktex.
+This template started originated from various sources such as Overleaf and GitHub.
+Apparently the initial version started from [LPL](https://www.lpl.arizona.edu/), along with some basic documentation/samples. The last documented public modifications was in 2018 when the statement of authors were no longer required.
+While searching for a usable Latex template, this was the best I could find, I decided to updated in 2023 to match current Graduate College requirements. Please see the `CHANGELOG`.txt and the commit history for more background.
 
-# Old README.txt
+----
+## Modernization
+The template is updated to run with the newer versions and packages of latex, such as using latexmk, lualatex, and biblatex, and leverage the fonts, graphics, and pdf related enhancements.
+The changes were made and tested on VScode + Latex Workshop extension running on Miktex (Windows).
+No other configurations were tested though TexLive/Overleaf should in theory work as well.
+
+Obsolete pages and methods originating from the time when documents were still submitted physically has been removed.
+Though the sample still includes the settings needed if you would like to send your thesis off to print, see the comments in the main Tex and class.
+Targeted packages and extra classes for cs/astro studies were also removed to lean out the package.
+
+----
+## File Structure
+
+dissertation.tex
+: Main Tex file, contains the required packages and options for the `uathesis.sty` class.
+All of the actual preface, apendix and writing should be done in the various included `.tex` files.
+From what I understand, if you're doing a Ph.D. it's a Dissertation and if you're doing a Masters it's a Thesis.
+There is actually very little differences between the two.
+
+mainmatter
+: Folder of where most of the written documnet lives
+
+Figs
+: Default root folder for figures, supported by the `graphicx` package, see the docs for more info
+
+
+## Building the Document
+The template by default uses `latexmk` to automagically run the main tex document `dissertation.tex` the required iterations to have the final output.
+This is due to Latex needs make sure that all the page numbers in the Table of Contents and
+the Lists of Figures and Tables are correct.
+The `latexmkconf` file in the template folder defines the Tex engine and configuations, by default uses lualatex with bibilatex.
+If you want to use pdflatex, you can change the settings in the latexmk file.
+Depending on your Tex Distribution, latexmk is my not be installed by default, and it also requires Perl to run.
+
+I
+
+# From Old README.txt
 
 This is a LaTeX 2e version of the thesis/dissertation style files that have been floating around LPL, along with some basic documentation/samples.
 It uses BibTeX and the 'natbib' referencing format and the `graphicx' package for handling figures.
@@ -77,10 +113,10 @@ uathesis.cls            LaTeX 2e class file for the UA Thesis format
 aastex_hack.sty		Style file to be able to use AASTEX macros
 deluxetable.sty		Style file allowing AASTEX deluxetable environment
 
+----
+## > WARNING! WARNING! WARNING!
 
-    WARNING! WARNING! WARNING!
-
-DISCLAIMER:  These files are not perfect, but they are based on
+> DISCLAIMER:  These files are not perfect, but they are based on
 older LaTeX style files that have produced acceptable dissertations
 for numerous former grad students.  If you use this class file and
 associated files and Grad College won't accept it, it's not our
@@ -100,8 +136,4 @@ curtis@lpl.arizona.edu	    daminton@lpl.arizona.edu
 Last modified March 20, 2006
 
 
-Note that latexmk is not installed by default, 
-	and requires Perl to run. The latexmk file is included in the template folder, it 
-	default uses lualatex with bibilatex. If you want to use pdflatex, you can change the
-	settings in the latexmk file. The template is sturckture to be used with VScode+Miktex 
-	with the 
+

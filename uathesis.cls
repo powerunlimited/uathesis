@@ -26,13 +26,11 @@
 %% for a while.
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uathesis}[2013/07/03 University of Arizona Thesis Class]
+\ProvidesClass{uathesis}[2033 University of Arizona Thesis Class]
 
 \RequirePackage{ifthen}
-\RequirePackage{cclicenses} % This is used to generate the Creative Commons
-									 % icons.  cclicenses.sty should be present along
-									 % with this file.  If you don't plan on using a
-									 % CC license, you can remove this.
+\RequirePackage{ccicons} % Creative Commons icons
+
 
 
 %% This class file will be based off of the book class, no need to
@@ -40,7 +38,7 @@
 %% are specific to the various kinds of theses.
 
 % Set a default for ThesisType, just in case
-\newcommand{\ThesisType}{\emph{(please specify thesis, dissertation, or document as an option in the uathesis documentclass statement at the top of your file)}}
+\newcommand{\ThesisType}{\emph{(please specify thesis or dissertation as an option in the uathesis documentclass statement at the top of your file)}}
 
 \DeclareOption{thesis}{%
 	\renewcommand{\ThesisType}{Thesis}
@@ -48,10 +46,6 @@
 
 \DeclareOption{dissertation}{%
 	\renewcommand{\ThesisType}{Dissertation}
-}
-
-\DeclareOption{document}{%
-	\renewcommand{\ThesisType}{Document}
 }
 
 \newboolean{Proposal}
@@ -141,10 +135,6 @@
 %% Okay, now that the options are set and the book class is loaded in,
 %% we now need to start detailing how we want this to be different than
 %% the book class.
-
-% We use \sloppy to suppress word division and permit larger interword
-% spacing so that lines are broken between words.
-\sloppy
 
 %% --------------------------- Global Settings ------------------------
 
