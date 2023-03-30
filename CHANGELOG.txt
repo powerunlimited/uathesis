@@ -111,4 +111,4 @@ August 2004
 	Updated the style to newer standards, updated the template folder to newer 'example
 	forms' from the graduate college. Removed the make files and switched to a latexmk 
 	to automagically arrive at the pdf. The template is also reworked to use VScode and
-	Latex Workshop with Miktex.
+	Latex Workshop with Miktex. Revamped and consolidated readme.
