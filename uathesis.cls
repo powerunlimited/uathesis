@@ -16,7 +16,6 @@
 %% Anh X. Tran		2013 (CS)
 %% Ted Lee		2023 (OS)
 %%
-%% Todo:
 %% Currently footskip is zero.  This should be looked into.
 %%
 %% This class file now spans two minor revs of the book.cls file:
@@ -29,7 +28,8 @@
 \ProvidesClass{uathesis}[2033 University of Arizona Thesis Class]
 
 \RequirePackage{ifthen}
-\RequirePackage{ccicons} % Creative Commons icons
+\RequirePackage{ccicons} % Creative Commons icons %%ToDo update code to use this package
+%% ToDo: move common packages to class, graphicx, biblatex, xcolor, linespec, microtype
 
 
 
@@ -164,7 +164,7 @@
 \setlength{\textwidth}{5.9in}		% should be 6in  but we're being 
 									% conservative, just to be safe.
 			
-
+%% Todo: change margin definitions to geometry package
 % Make sure that various key names are in all caps.
 \renewcommand{\partname}{PART}
 \renewcommand{\chaptername}{CHAPTER}

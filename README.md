@@ -20,24 +20,48 @@ Though the sample still includes the settings needed if you would like to send y
 Targeted packages and extra classes for cs/astro studies were also removed to lean out the package.
 
 ----
+
 ## File Structure
 
+uathesis.cls
+:LaTeX 2e class file for the UA Thesis format
+
 dissertation.tex
-: Main Tex file, contains the options for the `uathesis.sty` class.
-Most of the common packages are directly defined in the 
+: Main Tex file, contains the user options for the `uathesis.sty` class, eg. title, name, etc.
 All of the actual preface, appendix and writing should be done in the various included `.tex` files.
 From what I understand, if you're doing a Ph.D. it's a Dissertation and if you're doing a Masters it's a Thesis.
 There is actually very little differences between the two.
+> Most of the common packages are directly defined in the class file, except for `hyperref`
 
-mainmatter
-: Folder of where most of the written document lives
+/Figs
+: Default root folder for figures, supported by the `graphicx` package, see the [docs](https://ctan.org/pkg/latex-graphics) for more info
 
-Figs
-: Default root folder for figures, supported by the `graphicx` package, see the (docs)[https://ctan.org/pkg/latex-graphics] for more info
+proposal.tex
+: Sample of proposal if needed
 
+abstract.tex
+:Sample abstract
 
+acknowledgements.tex
+:Sample acknowledgements
+appendix_A.tex
+
+:Sample appendix
+
+bibliography.bib
+:Sample bibliography file
+
+intorduction.tex
+:Sample introduction chapter, add and change as needed, eg. methods, conclus.ions
+
+dedication.tex
+:Sample dedication
+
+uabibnat.bst
+:Bibliography style file
 
 ## Building the Document
+
 The template by default uses `latexmk` to automagically run the main tex document `dissertation.tex` the required iterations to have the final output.
 This is due to Latex needs make sure that all the page numbers in the Table of Contents and
 the Lists of Figures and Tables are correct.
@@ -45,97 +69,16 @@ The `latexmkconf` file in the template folder defines the Tex engine and configu
 If you want to use pdflatex, you can change the settings in the latexmk file.
 Depending on your Tex Distribution, latexmk is my not be installed by default, and it also requires Perl to run.
 
-I
-
-# From Old README.txt
-
-This is a LaTeX 2e version of the thesis/dissertation style files that have been floating around LPL, along with some basic documentation/samples.
-It uses BibTeX and the 'natbib' referencing format and the `graphicx' package for handling figures.
-Most LaTeX distributions should have these packages already.
-
-From what we understand, if you're doing a Ph.D. it's a Dissertation,
-and if you're doing a Masters it's a Thesis, and if you are getting
-a musical arts degree it is a Document.  There are some slight
-differences in the formatting of the `Statement by Author', which
-this template should handle correctly.  Otherwise, they are basically
-the same.  You can specify what kind of document you want produced
-by giving the \documentclass command the right option at the top
-of the file.  The sample dissertation.tex file has all three examples.
-
-In addition to the Dissertation (or Thesis or Document) itself, you
-must also produce a `Special Abstract' for UMI.  An example
-special_abstract.tex file is also provided for this short document.
-N.B. As of 2006, the special_abstract file may be obsolete, if you 
-are submitting your dissertation electronically.  We include it here 
-in case you still have need for it.
-
-To compile the sample dissertation into a .dvi file, run the following
-sequence of commands, or use the accompanying GNU Make file.
-
-latex dissertation
-bibtex dissertation
-latex dissertation
-latex dissertation
-latex dissertation
-
-That's right, you need to run LaTeX three times after you run BibTeX
-to make sure that all the page numbers in the Table of Contents and
-the Lists of Figures and Tables are correct.
-
-The Special Abstract isn't as complicated and can be made into a .dvi
-file with a single run of LaTeX.
-
-Once you have those .dvi files, make sure you use the "-t letter"
-option to dvips so that letter-sized output gets created in your
-PostScript file.
-
-The GNU Makefile will do all of this transparently (and make correct
-PostScript files) with a single call to the GNU make program, often
-aliased as `gmake'; but check your system, your default make program
-may already be GNU make.
-
-
-Files:
-
-Makefile                GNU make file for building your dissertation
-Makefile_alternate	Uses "rubber" to implement the build process.
-abstract.tex            Sample abstract
-acknowledgements.tex    Sample acknowledgements
-appendix_A.tex          Sample appendix
-bibliography.bib        Sample bibliography file
-chapter_1.tex           Sample chapter
-chapter_2.tex           Sample chapter
-dedication.tex          Sample dedication
-dissertation.tex        The main file.
-figure.eps              Sample figure
-refs.sty                Abbreviations for common journals
-special_abstract.tex	Sample special abstract file
-uabibnat.bst            Bibliography style file
-uathesis.cls            LaTeX 2e class file for the UA Thesis format
-aastex_hack.sty		Style file to be able to use AASTEX macros
-deluxetable.sty		Style file allowing AASTEX deluxetable environment
-
 ----
-## > WARNING! WARNING! WARNING!
+## Disclaimer
 
-> DISCLAIMER:  These files are not perfect, but they are based on
-older LaTeX style files that have produced acceptable dissertations
-for numerous former grad students.  If you use this class file and
-associated files and Grad College won't accept it, it's not our
-fault.  Double-check the format that this template produces against
-the Grad College requirements for yourself to make sure:
+These files are not perfect, and they are based on older LaTeX style files dating back 20+ years.
+That being said that have produced acceptable dissertations for numerous former grad students, I also tried and personally used it on my dissertation.
 
-http://grad.admin.arizona.edu/degreecert/thesismanual/front.htm
+> **If you use this class file and associated files and Grad College won't accept it, it's not my fault.**
 
-These files will certainly change as we hear about problems with
-the formatting, so be sure to check for newer versions.
+>Double-check the format that this template produces against the [current Grad College requirements](https://grad.arizona.edu/gsas/dissertations-theses/dissertation-and-thesis-formatting-guides) for yourself to make sure!
 
-Happy dissertating!
+These files will certainly change as time passes, PR and forks are more that welcome.
 
-Curtis S. Cooper            &        David A. Minton
-curtis@lpl.arizona.edu	    daminton@lpl.arizona.edu
-
-Last modified March 20, 2006
-
-
-
+## Happy dissertating!
