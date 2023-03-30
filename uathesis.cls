@@ -1,21 +1,20 @@
 %% This LaTeX 2e Class file is the culmination of a large amount of
-%% work over more than a decade by graduate students in the Department
-%% of Planetary Sciences at The University of Arizona.
+%% work over more than a couple decades by graduate students in The University of Arizona.
 %%
 %%
 %% Peter Halverson	1989 (non-LPL)
-%% William D. Sears	1994
-%% Rov Vervack		1996
-%% Andrew Rivkin	1997
-%% Joe Spitale		2001
-%% Dave O'Brien		2003
-%% Ross A. Beyer	2004
-%% Jim Richardson	2005
-%% Terry Hurford	2005
-%% Curtis S. Cooper	2007
-%% David A. Minton  2009
+%% William D. Sears	1994 (Department of Planetary Sciences)
+%% Rov Vervack		1996 (Department of Planetary Sciences)
+%% Andrew Rivkin	1997 (Department of Planetary Sciences)
+%% Joe Spitale		2001 (Department of Planetary Sciences)
+%% Dave O'Brien		2003 (Department of Planetary Sciences)
+%% Ross A. Beyer	2004 (Department of Planetary Sciences)
+%% Jim Richardson	2005 (Department of Planetary Sciences)
+%% Terry Hurford	2005 (Department of Planetary Sciences)
+%% Curtis S. Cooper	2007 (Department of Planetary Sciences)
+%% David A. Minton  2009 (Department of Planetary Sciences)
 %% Anh X. Tran		2013 (CS)
-%%
+%% Ted Lee		2023 (OS)
 %%
 %% Todo:
 %% Currently footskip is zero.  This should be looked into.
