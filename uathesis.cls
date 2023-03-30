@@ -146,7 +146,7 @@
 % spacing so that lines are broken between words.
 \sloppy
 
-%%---------------------------- Global Settings ------------------------
+%% --------------------------- Global Settings ------------------------
 
 %% Page Style to put numbers at the top.
 \pagestyle{myheadings}
