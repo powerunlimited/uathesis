@@ -23,42 +23,19 @@ Targeted packages and extra classes for cs/astro studies were also removed to le
 
 ## File Structure
 
-uathesis.cls
-:LaTeX 2e class file for the UA Thesis format
-
-dissertation.tex
-: Main Tex file, contains the user options for the `uathesis.sty` class, eg. title, name, etc.
+- `uathesis.cls` - LaTeX 2e class file for the UA Thesis format
+- `dissertation.tex` - Main Tex file, contains the user options for the `uathesis` class, eg. title, authors, degree etc.
 All of the actual preface, appendix and writing should be done in the various included `.tex` files.
-From what I understand, if you're doing a Ph.D. it's a Dissertation and if you're doing a Masters it's a Thesis.
-There is actually very little differences between the two.
-> Most of the common packages are directly defined in the class file, except for `hyperref`
-
-/Figs
-: Default root folder for figures, supported by the `graphicx` package, see the [docs](https://ctan.org/pkg/latex-graphics) for more info
-
-proposal.tex
-: Sample of proposal if needed
-
-abstract.tex
-:Sample abstract
-
-acknowledgements.tex
-:Sample acknowledgements
-appendix_A.tex
-
-:Sample appendix
-
-bibliography.bib
-:Sample bibliography file
-
-intorduction.tex
-:Sample introduction chapter, add and change as needed, eg. methods, conclus.ions
-
-dedication.tex
-:Sample dedication
-
-uabibnat.bst
-:Bibliography style file
+*Most of the common packages are directly defined in the class file, except for `hyperref`.*
+- `/Figs` - Default root folder for figures, supported by the `graphicx` package, see the [docs](https://ctan.org/pkg/latex-graphics) for more info
+- `proposal.tex` - Sample of proposal if needed
+- `abstract.tex` - Sample abstract
+- `acknowledgements.tex` - Sample acknowledgements
+- `appendix_A.tex` - Sample appendix
+- `bibliography.bib` - Sample bibliography file
+- `intorduction.tex` - Sample introduction chapter, add and change as needed, eg. methods, conclus.ions
+- `dedication.tex` - Sample dedication
+- `uabibnat.bst` - Bibliography style file
 
 ## Building the Document
 
