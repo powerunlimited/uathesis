@@ -87,3 +87,10 @@ Curtis S. Cooper            &        David A. Minton
 curtis@lpl.arizona.edu	    daminton@lpl.arizona.edu
 
 Last modified March 20, 2006
+
+
+Note that latexmk is not installed by default, 
+	and requires Perl to run. The latexmk file is included in the template folder, it 
+	default uses lualatex with bibilatex. If you want to use pdflatex, you can change the
+	settings in the latexmk file. The template is sturckture to be used with VScode+Miktex 
+	with the 
