@@ -23,16 +23,18 @@ Targeted packages and extra classes for cs/astro studies were also removed to le
 ## File Structure
 
 dissertation.tex
-: Main Tex file, contains the required packages and options for the `uathesis.sty` class.
-All of the actual preface, apendix and writing should be done in the various included `.tex` files.
+: Main Tex file, contains the options for the `uathesis.sty` class.
+Most of the common packages are directly defined in the 
+All of the actual preface, appendix and writing should be done in the various included `.tex` files.
 From what I understand, if you're doing a Ph.D. it's a Dissertation and if you're doing a Masters it's a Thesis.
 There is actually very little differences between the two.
 
 mainmatter
-: Folder of where most of the written documnet lives
+: Folder of where most of the written document lives
 
 Figs
-: Default root folder for figures, supported by the `graphicx` package, see the docs for more info
+: Default root folder for figures, supported by the `graphicx` package, see the (docs)[https://ctan.org/pkg/latex-graphics] for more info
+
 
 
 ## Building the Document
