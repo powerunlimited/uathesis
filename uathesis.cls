@@ -18,8 +18,8 @@
 %%
 %% Currently footskip is zero.  This should be looked into.
 %%
-%% This class file now spans two minor revs of the book.cls file:
-%% 2001/04/21 v1.4e  and  2004/02/16 v1.4f  we should probably go
+%% This class file now spans lots of minor revs of the book.cls file:
+%% 2001/04/21 v1.4e  and  2023/XX/XX v1.4n  we should probably go
 %% in and make everything consistent with the most recent rev, but
 %% since they aren't too different, I'm guessing things will work
 %% for a while.
@@ -28,10 +28,13 @@
 \ProvidesClass{uathesis}[2033 University of Arizona Thesis Class]
 
 \RequirePackage{ifthen}
-\RequirePackage{ccicons} % Creative Commons icons %%ToDo update code to use this package
-%% ToDo: move common packages to class, graphicx, biblatex, xcolor, linespec, microtype
-
-
+\RequirePackage{ccicons} % Creative Commons icons 
+\RequirePackage{graphicx} % For graphics
+\RequirePackage{biblatex} % For bibliography
+\RequirePackage{fontsetup} % For new computer modern+ math font setup
+\RequirePackage{geometry} % For page margins
+\RequirePackage{setspace} \onehalfspacing % For 1.5 spacing
+\RequirePackage{microtype} % better hyphen control
 
 %% This class file will be based off of the book class, no need to
 %% reinvent the wheel.  However, we need to set up some options that
@@ -140,10 +143,6 @@
 
 %% Page Style to put numbers at the top.
 \pagestyle{myheadings}
-
-%% Double spaced 
-%% (in order to conserve paper, we'll actually make this less than 2)
-\renewcommand{\baselinestretch}{1.4}
 
 
 %% Set margins for the bulk of the dissertation (referred to as Body of Paper).
@@ -459,43 +458,6 @@
 							{\normalsize}}
 							%{\normalfont\large\bfseries}}
 
-% The following four commands were renewed so that text in the body
-% and captions of figures and tables will be single spaced and not
-% get the document's default spacing.
-%
-% Otherwise this command is identical to the \figure and \table
-% newenvironments in the 2001/04/21 v1.4e book.cls.
-
-\renewenvironment{figure}
-	{
-	\renewcommand{\baselinestretch}{1}	% single spaced here
-	\small\normalsize					% size switch to make the spacing behave
-	\@float{figure}}
-	{\end@float}
-
-
-\renewenvironment{figure*}
-	{
-	\renewcommand{\baselinestretch}{1}	% single spaced here
-	\small\normalsize					% size switch to make the spacing behave
-	\@dblfloat{figure}}
-	{\end@dblfloat}
-
-\renewenvironment{table}
-	{
-	\renewcommand{\baselinestretch}{1}	% single spaced here
-	\small\normalsize					% size switch to make the spacing behave
-	\@float{table}}
-	{\end@float}
-
-\renewenvironment{table*}
-	{
-	\renewcommand{\baselinestretch}{1}	% single spaced here
-	\small\normalsize					% size switch to make the spacing behave
-	\@dblfloat{table}}
-	{\end@dblfloat}
-
-
 %% These commands give us values for strings that we will use 
 %% more than once in the commands below.
 
@@ -511,7 +473,7 @@
 \newcommand{\DegreeName}{#1}
 }
 
-
+% Todo Comfirm that it follows new sample
 %%---------------------------- Title Page -----------------------------
 %%
 %% \maketitlepage{Title}{Author}{degree title}{Department}{y e a r}
@@ -549,12 +511,11 @@ by
 \rule{2.25in}{1pt}\\
 
 % This puts in the Copyright statement
-\ifthenelse{\boolean{Copyright}}{\footnotesize~~~Copyright \copyright\ \FullName\ #2}{}	
+\ifthenelse{\boolean{Copyright}}{\footnotesize~~~Copyright \ccCopy\ \FullName\ #2}{}	
 % Creative Commons licenses	
-\ifthenelse{\boolean{CCBY}}{\footnotesize\cc \by Creative Commons Attribution 3.0 License}{}		
-\ifthenelse{\boolean{CCBYSA}}{\footnotesize\cc \bysa Creative Commons Attribution-Share Alike 3.0 License}{}		
-\ifthenelse{\boolean{CCBYND}}{\footnotesize\cc \bynd Creative Commons Attribution-No 
-Derivative Works 3.0 License}{}
+\ifthenelse{\boolean{CCBY}}{\footnotesize\ccby Creative Commons Attribution 3.0 License}{}		
+\ifthenelse{\boolean{CCBYSA}}{\footnotesize\ccbysa Creative Commons Attribution-Share Alike 3.0 License}{}		
+\ifthenelse{\boolean{CCBYND}}{\footnotesize\ccbynd Creative Commons Attribution-No Derivative Works 3.0 License}{}
 \small\normalsize					% size switch to make the spacing behave
 
 \vspace{0.5in}
@@ -697,127 +658,6 @@ Dissertation Director: #2	&			\\
 
 }
 
-
-%%---------------------------- Statement by Author --------------------
-%% \statementbyauthor
-%%
-
-\newcommand{\statementbyauthor}[1][\emph{Put your Thesis Director's name and title into square brackets, [], after the statementbyauthor command}]{
-
-%% This bracket begins an unnamed environment in which we will temporarily
-%% override the document's page style.
-{
-\renewcommand{\baselinestretch}{1}	% single spaced here
-\small\normalsize					% size switch to make the spacing behave
-
-% The vspace in the chapter command below accounts for the extra 1in of 
-% margin at the top needed for this page (total should be 2.5in).
-\ifthenelse{\boolean{Proposal}}{%
-  % Proposal's headings aren't centered by default and have smaller spacing
-  \chapter*{\center\vspace*{1in}STATEMENT BY AUTHOR}\vskip 30\p@
-}{%
-  \chapter*{\vspace*{1in}STATEMENT BY AUTHOR}
-}
-
-
-This \MakeLowercase{\ThesisType} has been submitted in partial
-fulfillment of the requirements for an advanced degree at the
-University of Arizona and is deposited in the University Library
-to be made available to borrowers under rules of the Library.
-
-\bigskip
-
-\noindent Brief quotations from this \MakeLowercase{\ThesisType} are allowable
-without special permission, provided that accurate acknowledgment
-of the source is made.  
-\ifthenelse{ \boolean{Copyright} }
-{Requests for permission for extended quotation 
-from or reproduction of this manuscript in whole or in part may be 
-granted by the copyright holder.}
-{\ifthenelse{ \boolean{CCBY} }
-{This work is licensed under the Creative Commons Attribution 3.0 
-United States License. To view a copy of this license, visit 
-\href{http://creativecommons.org/licenses/by/3.0/us/}
-{\mbox{http://creativecommons.org/licenses/by/3.0/us/}} or send a letter to 
-Creative Commons, 171 Second Street, Suite 300, San Francisco, 
-California, 94105, USA.} 
-{\ifthenelse{ \boolean{CCBYSA} }
-{This work is licensed under the Creative Commons Attribution-Share 
-Alike 3.0 United States License. To view a copy of this license, visit
-\href{http://creativecommons.org/licenses/by-sa/3.0/us/}
-{\mbox{http://creativecommons.org/licenses/by-sa/3.0/us/}} or send a letter to 
-Creative Commons, 171 Second Street, Suite 300, San Francisco, 
-California, 94105, USA.}
-{\ifthenelse{ \boolean{CCBYND} }
-{This work is licensed under the Creative Commons Attribution-No 
-Derivative Works 3.0 United States License. To view a copy of this 
-license, visit \href{http://creativecommons.org/licenses/by-nd/3.0/us/}
-{\mbox{http://creativecommons.org/licenses/by-nd/3.0/us/}} or send a letter to 
-Creative Commons, 171 Second Street, Suite 300, San Francisco, 
-California, 94105, USA.}
-	{Requests for permission for extended quotation from or reproduction 
-	of this manuscript in whole or in part may be granted by the head of 
-	the major department or the Dean of the Graduate 
-	College when in his or her judgment the proposed use of the 
-	material is in the interests of scholarship.  In all other 
-	instances, however, permission must be obtained from the author.}
-}}}
-
-\vspace{1in}
-
-\begin{flushleft}
-\begin{tabular*}{\textwidth}{p{2.5in}@{\extracolsep{\fill}}rp{2.5in}}
-\ifthenelse{ \equal{\ThesisType}{Thesis} }
-{
-							& SIGNED:	& 	\\
-\cline{3-3}
-							&			& \hfill \FullName	\\
-} {
-							& SIGNED:	& \FullName	\\
-}
-\end{tabular*}
-\end{flushleft}
-
-% If this is a Thesis, we need a permission and date statement.
-\ifthenelse{ \equal{\ThesisType}{Thesis} }
-{
-\vfill
-\begin{center}
-APPROVAL BY THESIS DIRECTOR
-
-\bigskip
-
-This thesis has been approved on the date shown below:
-
-\vspace{0.75in}
-
-\begin{minipage}[t]{4in}
-\begin{center}
-\hrulefill
-
-#1
-%Jane M. Doe\\
-%Professor of Chemistry
-\end{center}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{1.75in}
-\begin{center}
-\hrulefill
-
-Date
-\end{center}
-\end{minipage}
-
-
-\end{center}
-}
-
-}
-
-}
-
-
 %%---------------------------- Acknowledgements -----------------------
 %%
 %% This command includes the file that contains the acknowledgements.
@@ -882,45 +722,6 @@ Date
 
 }
 
-
-%%---------------------------- Special Abstract -----------------------
-%%
-%% This command includes the file that contains the abstract, but it
-%% also allows for extra information to be placed in the header for
-%% the special abstract.
-%%
-%% \incspecialabstract
-%% Options are	#1 = abstract file name
-%% 				#2 = Title
-%%				#3 = Author, Ph.D.
-%%				#4 = year
-%%				#5 = Thesis Director (needed for everything or just Masters?)
-\newcommand{\incspecialabstract}[5]{
-
-\thispagestyle{empty}				% no page number on these pages
-
-\begin{center}
-{\large\MakeUppercase{#2}}
-
-\bigskip
-
-\renewcommand{\baselinestretch}{1}	% single spaced to end of paragraph.
-\small\normalsize					% size switch to make the spacing behave
-#3\\
-The University of Arizona, #4
-
-\end{center}
-
-\noindent Director: #5
-
-\bigskip
-
-\InputIfFileExists{#1}
-	{\typeout{Including your file #1.tex as the special abstract.}}
-	{Couldn't find #1.tex to include as your special abstract.}
-}
-
-
 %%---------------------------- Table of Contents ----------------------
 %% 
 %% The table of contents that the UofA wants is subtley different in a
@@ -959,9 +760,7 @@ The University of Arizona, #4
 }
 }
 
-
-
-%%---------------------------- List of Figures ------------------------
+%---------------------------- List of Figures ------------------------
 %% 
 %% The U of A List of Figures requires a running header on subsequent
 %% pages that we must define here.  We also add this section to the TOC.
