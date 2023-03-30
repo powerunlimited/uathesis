@@ -27,18 +27,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{uathesis}[2033 University of Arizona Thesis Class]
 
-\RequirePackage{ifthen}
-\RequirePackage{ccicons} % Creative Commons icons 
-\RequirePackage{graphicx} % For graphics
-\RequirePackage{biblatex} % For bibliography
-\RequirePackage{fontsetup} % For new computer modern+ math font setup
-\RequirePackage{geometry} % For page margins
-\RequirePackage{setspace} \onehalfspacing % For 1.5 spacing
-\RequirePackage{microtype} % better hyphen control
-
 %% This class file will be based off of the book class, no need to
 %% reinvent the wheel.  However, we need to set up some options that
 %% are specific to the various kinds of theses.
+
+\RequirePackage{ifthen}
 
 % Set a default for ThesisType, just in case
 \newcommand{\ThesisType}{\emph{(please specify thesis or dissertation as an option in the uathesis documentclass statement at the top of your file)}}
@@ -138,6 +131,16 @@
 %% Okay, now that the options are set and the book class is loaded in,
 %% we now need to start detailing how we want this to be different than
 %% the book class.
+
+%% --------------------------- Load required packages ------------------------
+
+\RequirePackage{ccicons} % Creative Commons icons 
+\RequirePackage{graphicx} % For graphics
+\RequirePackage{fontsetup} % For new computer modern+ math font setup
+\RequirePackage{geometry} % For page margins
+\RequirePackage{setspace} \onehalfspacing % For 1.5 spacing
+\RequirePackage{microtype} % better hyphen control
+\RequirePackage{csquotes} % for better quotation marks
 
 %% --------------------------- Global Settings ------------------------
 
