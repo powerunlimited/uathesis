@@ -14,7 +14,7 @@
 %\documentclass[dissertation,copyright]{uathesis}
 %\documentclass[dissertation,CC-BY]{uathesis}
 %\documentclass[dissertation,CC-BY-SA]{uathesis}
-\documentclass[dissertation,CC-BY-ND]{uathesis}
+\documentclass[dissertation,CC-BY-ND,generatedon]{uathesis}
 %\documentclass[dissertation,generatedon]{uathesis}
 %\documentclass[thesis]{uathesis}
 %\documentclass[document]{uathesis}
@@ -29,6 +29,12 @@
 
 %% Use biblatex for bibliography management. Set here for different styles if required. Default is IEEE
 \usepackage[style=ieee]{biblatex}
+\DefineBibliographyStrings{english}{% Redifine bibliography tile name
+  bibliography = {REFERENCES},
+  references = {REFERENCES},
+}
+
+%% Add your bibliography file(s) here.
 \addbibresource{bibliography.bib}
 
 %% hyper-ref typically has to go last in the list of packages.

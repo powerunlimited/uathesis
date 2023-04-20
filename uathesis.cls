@@ -136,11 +136,12 @@
 
 \RequirePackage{ccicons} % Creative Commons icons 
 \RequirePackage{graphicx} % For graphics
-\RequirePackage{fontsetup} % For new computer modern+ math font setup
+\RequirePackage{fontsetup} % For new computer modern + math font setup
 \RequirePackage{geometry} % For page margins
 \RequirePackage{setspace} \onehalfspacing % For 1.5 spacing
 \RequirePackage{microtype} % better hyphen control
 \RequirePackage{csquotes} % for better quotation marks
+\RequirePackage{booktabs} % for better tables
 
 %% --------------------------- Global Settings ------------------------
 
@@ -174,7 +175,7 @@
 \renewcommand{\contentsname}{TABLE OF CONTENTS}
 \renewcommand{\listfigurename}{LIST OF FIGURES}
 \renewcommand{\listtablename}{LIST OF TABLES}
-\renewcommand{\bibname}{REFERENCES}
+\renewcommand{\bibname}{REFERENCES} % Will NOT work with biblatex
 
 % Proposals don't use chapters
 \ifthenelse{\boolean{Proposal}}{\renewcommand{\chaptername}{}}{}
