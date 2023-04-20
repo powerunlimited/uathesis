@@ -95,14 +95,18 @@
 \DeclareOption{generatedon}{%
 	\setboolean{GeneratedOn}{true}
 }
-% this provides a default option list
-\ExecuteOptions{12pt,oneside}
+
+% these provide a default option list
+\DeclareOption{oneside}{%
+\PassOptionsToClass{\CurrentOption}{memoir}%
+}
+\ExecuteOptions{oneside}
 
 % Pass other options to the memoir class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
 
 \ProcessOptions\relax
-\LoadClass{memoir}
+\LoadClass[12pt]{memoir}
 
 %% Okay, now that the options are set and the memoir class is loaded in,
 %% we now need to start detailing how we want this to be different than
@@ -113,16 +117,16 @@
 \RequirePackage{ccicons} % Creative Commons icons 
 \RequirePackage{graphicx} % For graphics
 \RequirePackage{fontsetup} % For new computer modern + math font setup
-% * Merge into memoir class \RequirePackage{geometry} % For page margins
-% * Merge into memoir class \RequirePackage{setspace} \onehalfspacing % For 1.5 spacing
 \RequirePackage{microtype} % better hyphen control
 \RequirePackage{csquotes} % for better quotes
+\RequirePackage{pdfpages} % for including pdfs
 
 %% --------------------------- Global Settings ------------------------
 
-%% Page Style to put numbers at the top.
-% TODO Modify this to use the new pagestyle
-\pagestyle{myheadings}
+%% Various default Styles definition to fit a thesis
+\chapterstyle{hangnum}
+
+
 
 
 %% Set margins for the bulk of the dissertation (referred to as Body of Paper).
@@ -130,7 +134,7 @@
 %% Fortunately, there left and right margins are identical, and the top and bottom margins are greater, so
 %% we'll just throw in some extra vspace in those places.
 %* Currently Use the memoir class defaults, only switch to one-half spacing for the body of the paper.
-\OneHalfSpacing
+\OnehalfSpacing
 
 
 % Make sure that various key names are in all caps.
@@ -230,10 +234,9 @@
     \bigskip
     \bigskip
 
-    \ifthenelse{ \boolean{GeneratedOn} }
-    {This draft was generated on \today.}
+    \ifthenelse{ \boolean{GeneratedOn} }%
+    {This draft was generated on \today.}{#5}								% Year
 
-    {#2}								% Year
   }
 }
 
