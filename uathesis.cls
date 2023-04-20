@@ -148,22 +148,7 @@
 %%---------------------------- General Renewed Commands----------------
 %%  Removed renew commands that are no longer needed or are in the memoir class.
 
-%% These commands give us values for strings that we will use 
-%% more than once in the commands below.
-
-\newcommand{\completetitle}[1]{%
-\newcommand{\CompleteTitle}{#1}
-}
-
-\newcommand{\fullname}[1]{%
-\newcommand{\FullName}{#1}
-}
-
-\newcommand{\degreename}[1]{%
-\newcommand{\DegreeName}{#1}
-}
-
-% Todo Comfirm that it follows new sample
+% Todo Confirm that it follows new sample
 %%---------------------------- Title Page -----------------------------
 %%
 %% \maketitlepage{Title}{Author}{degree title}{Department}{y e a r}
@@ -173,351 +158,91 @@
 %%				#3 = degree title
 %%				#4 = Department
 %%				#5 = year
+\newcommand{\maketitlepage}[5]{%
+  % This bracket begins an unnamed environment in which we will temporarily
+  % override the document's page style.
+  {
+    \thispagestyle{empty}				% no page number on title page
+    \SingleSpacing % single spaced herecentering
+    \centering % Center the title and author
+    \vspace*{0.5in}	% This accounts for the larger top margin.
 
-\newcommand{\maketitlepage}[2]{%
+    \bigskip
+    \bigskip
 
-% This bracket begins an unnamed environment in which we will temporarily
-% override the document's page style.
-{
-\thispagestyle{empty}				% no page number on title page
-\SingleSpacing % single spaced herecentering
-\centering % Center the title and author
-\vspace*{0.5in}	% This accounts for the larger top margin.
+    {\large\MakeTextUppercase{#1}}	% Title text
 
-\bigskip
-\bigskip
+    \bigskip
+    \bigskip
 
-{\large\MakeTextUppercase{\CompleteTitle}}	% Title text
+    by
 
-\bigskip
-\bigskip
+    \bigskip
+    \bigskip
 
-by
+    #2							% Author
 
-\bigskip
-\bigskip
+    \bigskip
+    \bigskip
 
-\FullName							% Author
+    \rule{2.25in}{1pt}\\
+    % This puts in the Copyright statement
+    \ifthenelse{\boolean{Copyright}}{\footnotesize~~~Copyright \ccCopy\ #2\ #5}{}	
+    % Creative Commons licenses	
+    \ifthenelse{\boolean{CCBY}}{\footnotesize\ccby Creative Commons Attribution 3.0 License}{}		
+    \ifthenelse{\boolean{CCBYSA}}{\footnotesize\ccbysa Creative Commons Attribution-Share Alike 3.0 License}{}		
+    \ifthenelse{\boolean{CCBYND}}{\footnotesize\ccbynd Creative Commons Attribution-No Derivative Works 3.0 License}{}
 
-\bigskip
-\bigskip
+    \bigskip
+    \bigskip
 
-\rule{2.25in}{1pt}\\
-% This puts in the Copyright statement
-\ifthenelse{\boolean{Copyright}}{\footnotesize~~~Copyright \ccCopy\ \FullName\ #2}{}	
-% Creative Commons licenses	
-\ifthenelse{\boolean{CCBY}}{\footnotesize\ccby Creative Commons Attribution 3.0 License}{}		
-\ifthenelse{\boolean{CCBYSA}}{\footnotesize\ccbysa Creative Commons Attribution-Share Alike 3.0 License}{}		
-\ifthenelse{\boolean{CCBYND}}{\footnotesize\ccbynd Creative Commons Attribution-No Derivative Works 3.0 License}{}
+    A \ThesisType\ Submitted to the Faculty of the
 
-\bigskip
-\bigskip
+    \bigskip
+    \bigskip
 
-A \ThesisType\ Submitted to the Faculty of the
+    \MakeTextUppercase{#4}					% Department
 
-\bigskip
-\bigskip
+    \bigskip
+    \bigskip
 
-\MakeTextUppercase{#1}					% Department
+    In Partial Fulfillment of the Requirements\\
+    \bigskip
+    For the Degree of
 
-\bigskip
-\bigskip
+    \bigskip
+    \bigskip
 
-In Partial Fulfillment of the Requirements\\
-\bigskip
-For the Degree of
+    \MakeTextUppercase{#3}					% Degree Title
 
-\bigskip
-\bigskip
+    \bigskip
+    \bigskip
 
-\MakeUppercase{\DegreeName}					% Degree Title
+    In the Graduate College
 
-\bigskip
-\bigskip
+    \bigskip
+    \bigskip
 
-In the Graduate College
+    THE UNIVERSITY OF ARIZONA
 
-\bigskip
-\bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
 
-THE UNIVERSITY OF ARIZONA
+    \ifthenelse{ \boolean{GeneratedOn} }
+    {This draft was generated on \today.}
 
-\vfill
-\ifthenelse{ \boolean{GeneratedOn} }
-{This draft was generated on \today.}
-
-{#2}								% Year
+    {#2}								% Year
+  }
 }
-
-}
-
 
 %%---------------------------- Approval Form --------------------------
 %% 
-%% This creates the Committee Approval form, the arguments are as
-%% follows:	#1	defense date
-%%			#2	Dissertation Director's name
-%%			#3	1st committee member's name
-%%			#4	2nd committee member's name
-%%			#5	3rd committee member's name
-%%			#6	4th committee member's name
-%%			#7	5th committee member's name
+%% Please use the Adobe workflow and include the signed documents in the thesis, which is also recommended by the Graduate College.
 
-\newcommand{\approval}[7]{%
-
-{
-\renewcommand{\baselinestretch}{1}	% single spaced here
-\small\normalsize	
-
-\ifthenelse{\boolean{Proposal}}{%
-  % Proposal's headings aren't centered by default and have smaller spacing
-  \chapter*{\center THE UNIVERSITY OF ARIZONA\\GRADUATE COLLEGE}\vskip 30\p@
-}{%
-  \chapter*{THE UNIVERSITY OF ARIZONA\\GRADUATE COLLEGE}
-}
-
-
-As members of the Dissertation Committee, we certify that we have
-read the \MakeLowercase{\ThesisType} prepared by \FullName,
-titled \CompleteTitle~and recommend that it be accepted as fulfilling the
-\MakeLowercase{\ThesisType} requirement for the Degree of \DegreeName.
-
-% Before the final oral defense you must obtain the Approval Pages
-% from the Degree Certification Office. Original signatures are
-% required on both final copies.  That means print out the Approval
-% Forms (one for each copy of the \ThesisType) on the nice acid-free
-% paper and get original signatures on each one.  Do this at your
-% defense to keep from having to do another signature round-up later
-% on.
-
-\vfill
-
-\bigskip
-\begin{flushleft}
-\begin{tabular*}{\textwidth}{p{4in}@{\extracolsep{\fill}}l}
-	& Date: #1	\\
-\cline{1-1}
-#3	& 			\\
-	&			\\
-	&			\\
-	& Date: #1	\\
-\cline{1-1}
-#4	& 			\\
-	&			\\
-	&			\\
-	& Date: #1	\\
-\cline{1-1}
-#5	& 			\\
-	& 			\\
-	& 			\\
-	& Date: #1	\\
-\cline{1-1}
-#6	& 			\\
-	&			\\
-	&			\\
-	& Date: #1	\\
-\cline{1-1}
-#7	& 			\\
-\end{tabular*}
-\end{flushleft}
-
-\ifthenelse{\boolean{Proposal}}{}{
-\vfill
-
-\noindent Final approval and acceptance of this \MakeLowercase{\ThesisType} is
-contingent upon the candidate's submission of the final copies of the
-\MakeLowercase{\ThesisType} to the Graduate College.
-
-\bigskip
-}
-
-\noindent I hereby certify that I have read this \MakeLowercase{\ThesisType} prepared
-under my direction and recommend that it be accepted as fulfilling the 
-\MakeLowercase{\ThesisType} requirement.
-
-\vfill
-
-\bigskip
-\begin{flushleft}
-\begin{tabular*}{\textwidth}{p{4in}@{\extracolsep{\fill}}l}
-							& Date: #1	\\
-\cline{1-1}
-Dissertation Director: #2	&			\\
-\end{tabular*}
-\end{flushleft}
-\vspace{0.5in} % This accounts for the 0.5in larger bottom margin on this page.
-}
-
-}
-
-%%---------------------------- Acknowledgements -----------------------
-%%
-%% This command includes the file that contains the acknowledgements.
+%%---------------------------- Rest of Front matter ----------------------
 %% 
-%% \incacknowledgements
-%% Option is #1 = acknowledgements file name
-%%
-
-\newcommand{\incacknowledgements}[1]{
-
-% This bracket begins an unnmaed environment in which we will temporarily
-% override the document's page style.
-{
-\renewcommand{\baselinestretch}{1}	% single spaced here
-\small\normalsize					% size switch to make the spacing behave
-
-\chapter*{ACKNOWLEDGEMENTS}
-
-\InputIfFileExists{#1}
-	{\typeout{Including your file #1.tex as the acknowledgements.}}
-	{Couldn't find #1.tex to include as your acknowledgements.}
-
-}
-}
-
-
-%%---------------------------- Dedication -----------------------------
-%%
-%% This command includes the file that contains the dedication.
-%%
-%% \incdedication
-%% Option is #1 = dedication file name
-%%
-
-\newcommand{\incdedication}[1]{
-
-\chapter*{DEDICATION}
-
-\InputIfFileExists{#1}
-	{\typeout{Including your file #1.tex as the dedication.}}
-	{Couldn't find #1.tex to include as your dedication.}
-
-}
-
-
-%%---------------------------- Abstract -------------------------------
-%%
-%% This command includes the file that contains the abstract.
-%%
-%% \incabstract
-%% Option is #1 = abstract file name
-%%
-
-\newcommand{\incabstract}[1]{
-
-\chapter*{ABSTRACT}
-\addcontentsline{toc}{chapter}{ABSTRACT}
-
-\InputIfFileExists{#1}
-	{\typeout{Including your file #1.tex as the abstract.}}
-	{Couldn't find #1.tex to include as your abstract.}
-
-}
-
-%%---------------------------- Table of Contents ----------------------
-%% 
-%% The table of contents that the UofA wants is subtley different in a
-%% number of ways such that we need to redefine the \tableofcontents
-%% command provided by the basic LaTeX classes.  Many of the commands
-%% here are confusing, but were taken from the LaTeX book.cls class
-%% file with the following date and version stamp: 2001/04/21 v1.4e
-%%
-\renewcommand{\tableofcontents}{
-
-\addtolength{\headsep}{0.5in}		% These adjust things for the running
-\addtolength{\textheight}{-0.5in}	% headers for TOC, LOF, LOT.
-
-% This bracket begins an unnmaed environment in which we will temporarily
-% override the document's page style and margins
-{
-\renewcommand{\baselinestretch}{1}	% single spaced here
-\small\normalsize					% size switch to make the spacing behave
-
-\if@twocolumn					% \
-	\@restonecoltrue\onecolumn	%  \
-\else							% 	> Taken from book.cls
-	\@restonecolfalse			%  /
-\fi								% /
-
-% vspace added to account for the TOC, LOF, & LOT running header business.
-\chapter*{\vspace*{-0.5in}\contentsname}
-
-% \markboth{	\protect\raisebox{-0.5in}{\textbf{\emph{\contentsname} -- Continued}\hspace{1.5in}} }{
-% 			\protect\raisebox{-0.5in}{\hspace{1.5in}\textbf{\emph{\contentsname} -- Continued}} }
-\markboth{	\protect\raisebox{-0.5in}{{\emph{\contentsname} -- Continued}\hspace{1.5in}} }{
-			\protect\raisebox{-0.5in}{\hspace{1.5in}{\emph{\contentsname} -- Continued}} }
-
-\@starttoc{toc}%
-\if@restonecol\twocolumn\fi		% Taken from book.cls
-}
-}
-
-%---------------------------- List of Figures ------------------------
-%% 
-%% The U of A List of Figures requires a running header on subsequent
-%% pages that we must define here.  We also add this section to the TOC.
-%% This was modified from the definition for listoffigures from 
-%% 2001/04/21 v1.4e book.cls.
-%%
-\renewcommand{\listoffigures}{%
-% This bracket begins an unnmaed environment in which we will temporarily
-% override the document's page style and margins
-{
-\renewcommand{\baselinestretch}{1}	% single spaced here
-\small\normalsize					% size switch to make the spacing behave
-
-    \if@twocolumn
-      \@restonecoltrue\onecolumn
-    \else
-      \@restonecolfalse
-    \fi
-	% vspace added to account for the TOC, LOF, & LOT running header business.
-    \chapter*{\vspace*{-0.5in}\listfigurename}%
-
-	% \markboth{\protect\raisebox{-0.5in}{\textbf{\emph{\listfigurename} -- Continued}\hspace{1.5in}} }{
-	% 		  \protect\raisebox{-0.5in}{\hspace{1.5in}\textbf{\emph{\listfigurename} -- Continued}} }
-	\markboth{\protect\raisebox{-0.5in}{{\emph{\listfigurename} -- Continued}\hspace{1.5in}} }{
-			  \protect\raisebox{-0.5in}{\hspace{1.5in}{\emph{\listfigurename} -- Continued}} }
-
-	\addcontentsline{toc}{chapter}{\listfigurename}
-    \@starttoc{lof}%
-    \if@restonecol\twocolumn\fi
-}
-}
-
-%%---------------------------- List of Tables -------------------------
-%% 
-%% The U of A List of Tables requires a running header on subsequent
-%% pages that we must define here.  We also add this section to the TOC.
-%% This was modified from the definition for listoffigures from 
-%% 2001/04/21 v1.4e book.cls.
-%%
-\renewcommand{\listoftables}{%
-% This bracket begins an unnmaed environment in which we will temporarily
-% override the document's page style and margins
-{
-\renewcommand{\baselinestretch}{1}	% single spaced here
-\small\normalsize					% size switch to make the spacing behave
-
-    \if@twocolumn
-      \@restonecoltrue\onecolumn
-    \else
-      \@restonecolfalse
-    \fi
-	% vspace added to account for the TOC, LOF, & LOT running header business.
-    \chapter*{\vspace*{-0.5in}\listtablename}%
-
-	% \markboth{\protect\raisebox{-0.5in}{\textbf{\emph{\listtablename} -- Continued}\hspace{1.5in}} }{
-	% 		  \protect\raisebox{-0.5in}{\hspace{1.5in}\textbf{\emph{\listtablename} -- Continued}} }
-	\markboth{\protect\raisebox{-0.5in}{{\emph{\listtablename} -- Continued}\hspace{1.5in}} }{
-			  \protect\raisebox{-0.5in}{\hspace{1.5in}{\emph{\listtablename} -- Continued}} }
-
-	\addcontentsline{toc}{chapter}{\listtablename}
-    \@starttoc{lot}%
-    \if@restonecol\twocolumn\fi
-}
-
-\clearpage
-\addtolength{\headsep}{-0.5in}		% Un-adjust things for the running
-\addtolength{\textheight}{0.5in}	% headers for TOC, LOF, LOT.
-}
+%% The university has loosened the requirements considerably for the rest of the Documents.
+%% The only thing that is required is the Tile page, and the Approval form. all the rest is optional.
+%% Thus we use the default memoir class definitions for the rest of the front matter.
