@@ -7,10 +7,13 @@
 \lipsum[1]
 
 This is a sample citation \autocite{Bob2011}.
-\lipsum[2]
+You can see that the number is linked and will also auto update if you change the bibliography.
 
 Lets try a \cref{chapter:introduction} reference.
 Now lets see how to add a Figure float.
+After a figure, referenced as \cref{fig:samplefigure}.
+Let's try a table now.
+Notice that the floats move around in the page, that is normal, but the reference \cref{tab:sampletable} will always point to the correct location.
 
 \begin{figure}
     \centering % Center the figure
@@ -18,9 +21,8 @@ Now lets see how to add a Figure float.
     \caption{This is a sample figure.\label{fig:samplefigure}} % Good habit to add labels in captions.
 \end{figure}
 
-After a figure, referenced as \cref{fig:samplefigure}.
-Let's try a table now.
-\begin{table}
+
+\begin{table} % https://www.latex-tables.com/ has a good tutorial/WUSIWUG editor
     \centering
     \caption{My Sample Table\label{tab:sampletable}}
     \begin{tabular}{c c c}
