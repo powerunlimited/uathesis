@@ -11,9 +11,11 @@ While searching for a usable Latex template, this was the best I could find, I d
 
 ----
 ## Modernization
-The template is updated to run with the newer versions and packages of latex, such as using latexmk, lualatex, and biblatex, and leverage the fonts, graphics, and pdf related enhancements.
+
+The template is updated to run with modern latex packages, such as using latexmk, lualatex, and biblatex, and leverage the fonts, graphics, and pdf related enhancements.
 The changes were made and tested on VScode + Latex Workshop extension running on Miktex (Windows).
 No other configurations were tested though TexLive/Overleaf should in theory work as well.
+*Perl is required to run `latexmk`!*
 
 Obsolete pages and methods originating from the time when documents were still submitted physically has been removed.
 Though the sample still includes the settings needed if you would like to send your thesis off to print, see the comments in the main Tex and class.
@@ -33,7 +35,7 @@ All of the actual preface, appendix and writing should be done in the various in
 - `acknowledgements.tex` - Sample acknowledgements
 - `appendix_A.tex` - Sample appendix
 - `bibliography.bib` - Sample bibliography file
-- `intorduction.tex` - Sample introduction chapter, add and change as needed, eg. methods, conclus.ions
+- `intorduction.tex` - Sample introduction chapter, add and change as needed, eg. methods, conclusions
 - `dedication.tex` - Sample dedication
 - `uabibnat.bst` - Bibliography style file
 
