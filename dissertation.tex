@@ -26,8 +26,8 @@
 %\usepackage{todonotes} % for todo notes while writing the document, turn off with final option
 %\usepackage{siunitx} % Comprehensive package for typesetting units
 
-%% Use biblatex for bibliography management. Set here for different styles if required.
-\usepackage[style=numeric]{biblatex}
+%% Use biblatex for bibliography management. Set here for different styles if required. Default is IEEE
+\usepackage[style=ieee]{biblatex}
 \addbibresource{bibliography.bib}
 %% hyper-ref typically has to go last in the list of packages.
 \usepackage[bookmarks,colorlinks=true,urlcolor=red,linkcolor=black,citecolor=black]{hyperref} 
@@ -90,7 +90,7 @@
 \renewcommand{\baselinestretch}{1}		% changing the value
 \small\normalsize										% switch size to make the value take
 
-% Create the References list %%TODO update natbib to biblatex
+% Create the References list
 \printbibliography
 
 \end{document}
