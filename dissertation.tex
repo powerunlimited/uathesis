@@ -6,7 +6,7 @@
 
 % We'll use the uathesis document class (duh).  The uncommented line below will produce a Dissertation, the others would produce a Thesis.
 % There are other options available to you like turning on the copyright statement and replacing the year on the title page with a "generated on" stamp (handy for early drafts).
-% To find out what the available options are, take a look into the uathesis.cls file and look for the \DeclareOption commands near the top of thatfile.
+% To find out what the available options are, take a look into the uathesis.cls file and look for the \DeclareOption commands near the top of that file.
 % There are five copyright options.  Copyright, no copyright, and three different Creative Commons licenses.
 % The draft and Final options are also recommended.  The draft option will enable faster compile time and the final option will turn off todo notes.
 
@@ -25,25 +25,28 @@
 %\usepackage{callouts} % for callouts in the document
 %\usepackage{todonotes} % for todo notes while writing the document, turn off with final option
 %\usepackage{siunitx} % Comprehensive package for typesetting units
+\usepackage{lipsum} % For dummy text
 
 %% Use biblatex for bibliography management. Set here for different styles if required. Default is IEEE
 \usepackage[style=ieee]{biblatex}
 \addbibresource{bibliography.bib}
+
 %% hyper-ref typically has to go last in the list of packages.
-\usepackage[bookmarks,colorlinks=true,urlcolor=red,linkcolor=black,citecolor=black]{hyperref} 
-%\usepackage{cleveref} % for smart cross-reference
+\usepackage[bookmarks,colorlinks=true,urlcolor=red,linkcolor=black,citecolor=black]{hyperref}
+\usepackage{cleveref} % for smart cross-reference, must be enabled after hyperref
+
 
 %% Set up some values.
 \completetitle{My Lovely Dissertation}
 \fullname{Wilber WildCat} % Grad college wants your full name here.
-\degreename{Doctor of Philosophy}	% Title of your degree.
+\degreename{Doctor of Philosophy} % Title of your degree.
 
 \begin{document}
 
 %% Set up the title page
 \maketitlepage%
-{DEPARTMENT OF COMPUTER SCIENCE}	% Title of your department.
-{2013}
+{WYANT COLLEGE OF OPTICAL SCIENCE} % Title of your department.
+{2023} % Year of degree
 
 %% Insert the approval form.  Note that for electronic submission
 % of your Ph. D. dissertation, you must bring *two* copies of the
@@ -86,13 +89,7 @@
 \appendix
 \include{appendix_A}
 
-% Switch the spacing to single-spaced for the references
-\renewcommand{\baselinestretch}{1}		% changing the value
-\small\normalsize										% switch size to make the value take
-
 % Create the References list
 \printbibliography
 
 \end{document}
-
-
