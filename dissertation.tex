@@ -36,9 +36,17 @@
 %% Add your bibliography file(s) here.
 \addbibresource{bibliography.bib}
 
-%% hyper-ref typically has to go last in the list of packages.
-\usepackage[bookmarks,colorlinks=true,urlcolor=red,linkcolor=black,citecolor=black]{hyperref}
+%% hyper-ref typically has to go last in the list of packages, force newer pdf version for embedding approval.
+\usepackage[bookmarks,colorlinks=true,urlcolor=red,linkcolor=black,citecolor=black,xetex,pdfversion=1.7]{hyperref} 
 \usepackage{cleveref} % for smart cross-reference, must be enabled after hyperref
+
+%% Pdf metadata
+\hypersetup{%
+  pdftitle={Your PDF title},
+  pdfsubject={Your PDF subject},
+  pdfauthor={Your PDF author},
+  pdfkeywords={Your PDF keywords},
+}
 
 %% Toggle to only render selected chapters, comment out to skip chapter, references and labels will still work.
 \includeonly{%

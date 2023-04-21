@@ -126,7 +126,9 @@
 %% Various default Styles definition to fit a thesis
 \chapterstyle{hangnum}
 
-
+%% Graphic defaults size and folders
+\setkeys{Gin}{width=0.9\linewidth} % Set the default width of graphics to 90% of the current text width
+\graphicspath{{figs/}} % Set the default folder for graphics to figs/
 
 
 %% Set margins for the bulk of the dissertation (referred to as Body of Paper).
@@ -189,13 +191,13 @@
     \bigskip
     \bigskip
 
-    \rule{2.25in}{1pt}\\
+    \rule{3in}{1pt}\\
     % This puts in the Copyright statement
     \ifthenelse{\boolean{Copyright}}{\footnotesize~~~Copyright \ccCopy\ #2\ #5}{}	
     % Creative Commons licenses	
-    \ifthenelse{\boolean{CCBY}}{\footnotesize\ccby Creative Commons Attribution 3.0 License}{}		
-    \ifthenelse{\boolean{CCBYSA}}{\footnotesize\ccbysa Creative Commons Attribution-Share Alike 3.0 License}{}		
-    \ifthenelse{\boolean{CCBYND}}{\footnotesize\ccbynd Creative Commons Attribution-No Derivative Works 3.0 License}{}
+    \ifthenelse{\boolean{CCBY}}{\footnotesize\ccby~CC Attribution}{}		
+    \ifthenelse{\boolean{CCBYSA}}{\footnotesize\ccbysa~CC Attribution-Share Alike}{}		
+    \ifthenelse{\boolean{CCBYND}}{\footnotesize\ccbynd~CC Attribution-No Derivative Works}{}
 
     \bigskip
     \bigskip
