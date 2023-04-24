@@ -1,7 +1,6 @@
 %% This LaTeX 2e Class file is the culmination of a large amount of
 %% work over more than a couple decades by graduate students in The University of Arizona.
 %%
-%%
 %% Peter Halverson	1989 (non-LPL)
 %% William D. Sears	1994 (Department of Planetary Sciences)
 %% Rov Vervack		1996 (Department of Planetary Sciences)
@@ -139,14 +138,9 @@
 \OnehalfSpacing
 
 
-% Make sure that various key names are in all caps.
-\renewcommand{\partname}{PART}
-\renewcommand{\chaptername}{CHAPTER}
-\renewcommand{\appendixname}{APPENDIX}
-\renewcommand{\contentsname}{TABLE OF CONTENTS}
-\renewcommand{\listfigurename}{LIST OF FIGURES}
-\renewcommand{\listtablename}{LIST OF TABLES}
-\renewcommand{\bibname}{REFERENCES} % Will NOT work with biblatex
+% Make sure that various key names are Correct.
+\renewcommand{\contentsname}{Table of Contents}
+
 
 % Proposals don't use chapters
 \ifthenelse{\boolean{Proposal}}{\renewcommand{\chaptername}{}}{}
@@ -168,7 +162,7 @@
   % This bracket begins an unnamed environment in which we will temporarily
   % override the document's page style.
   {
-    \thispagestyle{empty}				% no page number on title page
+    \thispagestyle{titlingpage} % no page number on title page
     \SingleSpacing % single spaced herecentering
     \centering % Center the title and author
     \vspace*{0.5in}	% This accounts for the larger top margin.
@@ -191,7 +185,7 @@
     \bigskip
     \bigskip
 
-    \rule{3in}{1pt}\\
+    \rule{3in}{\normalrulethickness}\\
     % This puts in the Copyright statement
     \ifthenelse{\boolean{Copyright}}{\footnotesize~~~Copyright \ccCopy\ #2\ #5}{}	
     % Creative Commons licenses	
@@ -238,7 +232,8 @@
 
     \ifthenelse{ \boolean{GeneratedOn} }%
     {This draft was generated on \today.}{#5}								% Year
-
+    
+    \cleardoublepage
   }
 }
 
