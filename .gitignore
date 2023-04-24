@@ -10,3 +10,8 @@
 *.synctex.gz
 *.thm
 *.toc
+*.run.xml
+.gitignore
+*.fdb_latexmk
+*.bcf
+*.fls

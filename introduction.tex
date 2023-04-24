@@ -1,0 +1,38 @@
+\chapter{Introduction\label{chapter:introduction}}
+
+\lipsum
+
+\section{Overview\label{sec:overview}}
+
+\lipsum[1]
+
+This is a sample citation \autocite{Bob2011}.
+You can see that the number is linked and will also auto update if you change the bibliography.
+
+Lets try a \cref{chapter:introduction} reference.
+Now lets see how to add a Figure float.
+After a figure, referenced as \cref{fig:samplefigure}.
+Let's try a table now.
+Notice that the floats move around in the page, that is normal, but the reference \cref{tab:sampletable} will always point to the correct location.
+
+\begin{figure}
+    \centering % Center the figure
+    \includegraphics{example-image-a} % Most image formats are supported
+    \caption{This is a sample bar graph. Source: \url{https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-figures}\label{fig:samplefigure}} % Good habit to add labels in captions.
+\end{figure}
+
+
+\begin{table} % https://www.latex-tables.com/ has a good tutorial/WUSIWUG editor
+    \centering
+    \caption{My Sample Table\label{tab:sampletable}}
+    \begin{tabular}{c c c}
+        \toprule
+        \multicolumn{3}{c}{Sample Table} \\
+        \midrule
+        Column 1 & Column 2 & Column 3 \\
+        \midrule
+        1 & 2 & 3 \\  
+        Some text & More text & Even more text \\
+        \bottomrule
+    \end{tabular}
+\end{table}
