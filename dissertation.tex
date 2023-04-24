@@ -48,13 +48,14 @@
   pdfkeywords={Your PDF keywords},
 }
 
-%% Toggle to only render selected chapters, comment out to skip chapter, references and labels will still work.
+%% Toggle to only render selected chapters, comment out to skip chapter, references and labels will still work. remember to add all input files.
 \includeonly{%
   introduction.tex,
-  previous_work.tex}
+  previous_work.tex,
+  appendix-A.tex}
 
 \begin{document}
-\frontmatter*
+\frontmatter* % Chapters here don't count and input is used instead of include
 %% Set up the title page
 % \maketitlepage{Title}{Author}{degree title}{Department}{year}
 \maketitlepage%
@@ -70,28 +71,37 @@
 \includepdf[pagecommand={}]{approval-sample.pdf}
 
 % Include the OPTIONAL``Acknowledgements''
-\include{acknowledgements.tex}
-\include{land-acknowledgement.tex}
+\input{acknowledgements.tex}
+\input{land-acknowledgement.tex}
 
 % Include the OPTIONAL ``Dedication''
-\include{dedication.tex}
+\input{dedication.tex}
+
 % Create a ``Table of Contents''
 \tableofcontents
+\cleardoublepage
 % Create a ``List of Figures''
 \listoffigures
+\cleardoublepage
 % Create a ``List of Tables''
 \listoftables
+\cleardoublepage
+
 % Include the ``Abstract''
-\include{abstract.tex}
+\input{abstract.tex}
 
 \mainmatter*
-% Include the various chapters
+
+% Include the various chapters, remember to add them to the \includeonly{} list above.
 \include{introduction.tex}
 \include{previous-work.tex}
 
-% Include the various appendices
+% Include the various appendices, remember to add them to the \includeonly{} list above.
 \appendix
-\include{appendix_A}
+
+\include{appendix-A.tex}
+
+\backmatter
 
 % Create the References list
 \printbibliography
